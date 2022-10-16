@@ -24,3 +24,9 @@ a {
     background: black;
   }
 }
+
+:root {
+  --text-black: #0f172a;
+  --text-red: #ed0331;
+  --text-red-dark: #b80126;
+}
