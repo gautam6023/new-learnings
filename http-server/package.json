@@ -1,0 +1,12 @@
+{
+  "devDependencies": {
+    "typescript": "^4.9.3"
+  },
+  "dependencies": {
+    "nodemon": "^2.0.20",
+    "ts-node": "^10.9.1"
+  },
+  "scripts": {
+    "server": "nodemon src/index.ts"
+  }
+}
