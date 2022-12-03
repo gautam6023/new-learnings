@@ -5,7 +5,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Component {...pageProps} />
-      <footer>Copyright 2022 Gautam</footer>
+      {/* <footer>Copyright 2022 Gautam</footer> */}
     </>
   );
 }
