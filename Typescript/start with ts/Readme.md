@@ -39,12 +39,16 @@ tsc <File Name>
 
 ## Syntax
 
-```
-let firstName : string = "Gautam"
+```js
+let firstName: string = "Gautam";
 ```
 
-```
-let greetings : string = "Hello Gautam"
+```js
+let greetings: string = "Hello Gautam";
 
-greetings = 6 //Error
+greetings = 6; //Error
+
+let number: number = 5;
 ```
+
+- In JS 'number' covers both Floats and Integers but in other languages they both are used.
