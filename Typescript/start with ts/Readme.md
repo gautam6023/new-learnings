@@ -155,14 +155,66 @@ signUp2("Gautam", "G@gmail.com"); //No Errors
 
 ### Return value type
 
+### Function without return value type
+
 ```js
 function addTwo(val: number) {
   // return val + 2;
   return "string";
 }
 
-let number = addTwo("2");
+let number = addTwo("2"); // No Errors
 ```
 
 - Above code example will not throw an error as we have not given return value type in the function.
 - Because of that, type of return value is any
+
+### Function with return value type
+
+```js
+function addTwo(val: number): number {
+  // return val + 2;
+  return "string";
+}
+
+let number = addTwo("2"); // Error
+// To remove above error, this function should always return a number value
+```
+
+### Return multiple types values
+
+- Sometimes there might be a case when a function is returning a multiple type of values
+
+```js
+function returnAns(num: number): string | boolean {
+  if (num > 5) {
+    return true;
+  } else {
+    return "403 Error";
+  }
+}
+returnAns(5);
+```
+
+- We can use OR operator in TS from which we can return a multiple types of values from a function
+
+### Function which returns nothins
+
+- When a function which will not return any value we should use "void"
+
+```js
+const consoleError = (errMsg: string): void => {
+  console.log(errMsg);
+};
+consoleError("202");
+```
+
+- In above code example if we try to return something after mentioning void TS will throw an error
+
+```js
+const consoleError = (errMsg: string): void => {
+  console.log(errMsg);
+  return "";
+};
+consoleError("202"); //Error
+```
