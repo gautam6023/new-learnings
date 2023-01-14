@@ -2,7 +2,7 @@
 
 ## Installation
 
-- Install TS Globally
+- Install TS Globaly
 
 ```
 npm install -g typescript
@@ -51,4 +51,55 @@ greetings = 6; //Error
 let number: number = 5;
 ```
 
-- In JS 'number' covers both Floats and Integers but in other languages they both are used.
+- In JS 'number' covers both Floats and Integers but in other languages they both are used differently to define values.
+
+- Numbers in TS
+
+```js
+let age: number = 25;
+/**
+ * Above practice is good but TS is capable of recognizing type of data automatically
+ 
+ * So if we declare variable with any data type we do not need to give type while defining 
+
+ * Basically TS infering type of variable automatically
+*/
+
+let age = 25;
+
+age = "Gautam"; //Error as TS already knows that this variable contains number only
+```
+
+## any
+
+- When TS does not know which value to infer TS infer as a "any"
+- It basically turned of the type checking for that particuller variable
+- We should always avoid to use any as its just not checking type
+
+```js
+let hero;
+
+function getHero() {
+  return true;
+}
+
+hero = getHero();
+```
+
+- Above "hero" type infered as a any because TS dosent know "getHero" function which value it will return.
+- We should avoid above code example
+
+```js
+let hero: string;
+
+function getHero() {
+  return true;
+}
+
+hero = getHero(); //Error
+```
+
+- In above code example if type of variable is defined we will have consistency in our app.
+- Now if any ottrueher developer will return something different value from "getHero" function TS will not allow it.
+
+## Function in Typescript
