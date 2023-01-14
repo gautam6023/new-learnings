@@ -99,7 +99,70 @@ function getHero() {
 hero = getHero(); //Error
 ```
 
-- In above code example if type of variable is defined we will have consistency in our app.
+- In above code example if type of an variable is defined we will have consistency in our app.
 - Now if any ottrueher developer will return something different value from "getHero" function TS will not allow it.
 
 ## Function in Typescript
+
+- In TS while defining a function we need to take care about input , return value types.
+
+### Input types
+
+```js
+// 1
+function addTwo(val) {
+  return val + 2;
+}
+
+addTwo("2"); //No errors
+
+//2
+
+function signUp(name, email, isPaid) {}
+signUp(1, 2, 3); //No errors
+```
+
+- Above function will not throw an error as "val" type is by default any
+
+```js
+//1
+
+function addTwo(val: number) {
+  return val + 2;
+}
+
+addTwo("2"); // Error
+
+//2
+
+function signUp(name: string, email: string, isPaid: boolean) {}
+signUp(1, 2, 3); //Error
+```
+
+- Above code example is perfect, where we have defined type of input value
+
+- To take default value in function value below code example will be usefull
+
+```js
+//1
+const signUp = (name: string, email: string, isPaid: boolean) => {};
+signUp("Gautam", "G@gmail.com"); //Error
+
+//2
+const signUp2 = (name: string, email: string, isPaid: boolean = false) => {};
+signUp2("Gautam", "G@gmail.com"); //No Errors
+```
+
+### Return value type
+
+```js
+function addTwo(val: number) {
+  // return val + 2;
+  return "string";
+}
+
+let number = addTwo("2");
+```
+
+- Above code example will not throw an error as we have not given return value type in the function.
+- Because of that, type of return value is any
