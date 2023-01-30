@@ -6,13 +6,8 @@ function getHero() {
     return "true";
 }
 hero = getHero();
-// Return value type
-function returnAns(num) {
-    if (num > 5) {
-        return true;
-    }
-    else {
-        return "403 Error";
-    }
-}
-returnAns(5);
+var user = {
+    cardName: "Gautam",
+    cardNumber: "56343",
+    cardDate: "17th Aug"
+};

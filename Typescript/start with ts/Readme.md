@@ -196,9 +196,9 @@ function returnAns(num: number): string | boolean {
 returnAns(5);
 ```
 
-- We can use OR operator in TS from which we can return a multiple types of values from a function
+- We can use UNION operator in TS from which we can return a multiple types of values from a function
 
-### Function which returns nothins
+### Function which returns nothing
 
 - When a function which will not return any value we should use "void"
 
@@ -217,4 +217,37 @@ const consoleError = (errMsg: string): void => {
   return "";
 };
 consoleError("202"); //Error
+```
+
+### Function which will never return value
+
+- When this type of case comes into the picture, TS has given documantation regarding the same
+
+```js
+const handleError = (errMsg: string): never => {};
+```
+
+### And Operator
+
+- In below example, we can use 'and' operator to combine different types.
+
+```js
+type CardNumber = {
+  cardNumber: string,
+};
+
+type CardDate = {
+  cardDate: string,
+};
+
+type Card = CardNumber &
+  CardDate & {
+    cardName: string,
+  };
+
+let user: Card = {
+  cardName: "Gautam",
+  cardNumber: "56343",
+  cardDate: "17th Aug",
+};
 ```
