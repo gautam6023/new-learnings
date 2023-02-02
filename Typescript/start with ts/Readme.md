@@ -329,7 +329,7 @@ let gautam: User | Admin = {
 
 -  Union in function
 
-```ts
+```js
 function doStuff(id: number | string) {
    /**
     * Here I can not do string or number operation with id directly
@@ -350,14 +350,14 @@ function doStuff(id: number | string) {
 
 ### Union Types with array
 
-```ts
+```js
 const data: number[] = [1, 2, 3]; //number of Array
 const data1: string[] = ["1", "2", "3"]; //string of Array
 ```
 
 -  Lets make array which will include both types
 
-```ts
+```js
 const data3: string[] | number[] = [1, 2, "3"]; //Error bcz of wrong syntax
 ```
 
@@ -365,8 +365,96 @@ const data3: string[] | number[] = [1, 2, "3"]; //Error bcz of wrong syntax
 
 -  Right syntax would be as writted below
 
-```ts
+```js
 const data3: (number | string)[] = [1, 2, "3"]; //Works fine`
 ```
 
-## Touples in Typecrip :
+## Touples in Typescrip :
+
+-  Touple is way in typescript in which we can define exact array element types with order of the elements
+
+```js
+const userArray: [string, boolean, string] = ["Gautam", 23, "G@gmail.com"];
+
+let user: [number, string] = [13, "Gautam"];
+
+// user[0] = "6" //Error
+//But while using Toupeles
+user.push("5");
+//We can mutate array by using Array methods
+```
+
+## ENUMS in Typescript :
+
+-  Enums are used when we want ristrict choice of values for users
+
+### Syntax
+
+```js
+const enum PaymentOptions {
+   UPI = "UPI",
+   Cards = "Cards",
+   COD = "COD",
+}
+
+const choosedOption = PaymentOptions.Cards;
+
+```
+
+## Interfaces in Typescript :
+
+-  Interface is kind of define Object structure,
+
+### Syntax
+
+```js
+interface NewUser {
+   readonly dbId: number;
+   email: string;
+   userId: number;
+   googleId?: string;
+   //Methods
+   //Two ways to write a methods
+   startTrail: () => string;
+   getCoupon(couponName: string, value: number): number;
+}
+
+const Gautam: NewUser = {
+   dbId: 1245,
+   userId: 4433,
+   email: "g@gmail.com",
+   startTrail: () => "started",
+   //In below method parameter name doesnt matter but type of parameter should be same as mentioned in interface
+   getCoupon: (gautam10: string, noname: 5) => 10,
+};
+
+```
+
+-  We can edit interface easily
+-  We can call it as re-opening of an interface
+
+```js
+//we can use same interface as used above
+
+interface NewUser {
+   githubToken: string;
+}
+
+//isn't it simple
+```
+
+### Inheritence in interface
+
+```js
+interface Admin extends NewUser {
+   // Now we have all property types of NewUser in Admin interface same as js Classes
+
+   role: "Admin" | "User" | "Super-Admin";
+}
+```
+
+### Interface vs Type Aliases :
+
+-  Type aliases and interfaces are very similar, and in many cases you can choose between them freely.
+-  Almost all features of an interface are available in type,
+-  the key distinction is that a type cannot be re-opened to add new properties vs an interface which is always extendable.
