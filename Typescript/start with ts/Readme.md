@@ -277,3 +277,25 @@ const twoDArray : number[][] = [
   //"" Error
 ]
 ```
+
+-  Read only Array
+-  We can not mutate values in read only arrays
+
+```js
+function doStuff(values: ReadonlyArray<string>) {
+  // We can read from 'values'...
+  const copy = values.slice();
+  console.log(`The first value is ${values[0]}`);
+
+  // ...but we can't mutate 'values'.
+  values.push("hello!");
+Property 'push' does not exist on type 'readonly string[]'.
+}
+
+```
+
+-  Refer following Documentation for more [Click here](https://www.typescriptlang.org/docs/handbook/2/objects.html#the-array-type)
+
+### Union Types : "|"
+
+-  Union we basically use, when we are not sure what type of value our code will return probably
