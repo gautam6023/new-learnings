@@ -106,7 +106,7 @@ hero = getHero(); //Error
 
 -  In TS while defining a function we need to take care about input , return value types.
 
-### Input types
+## Input types
 
 ```js
 // 1
@@ -153,7 +153,7 @@ const signUp2 = (name: string, email: string, isPaid: boolean = false) => {};
 signUp2("Gautam", "G@gmail.com"); //No Errors
 ```
 
-### Return value type
+## Return value type
 
 ### Function without return value type
 
@@ -252,7 +252,7 @@ let user: Card = {
 };
 ```
 
-### Array Types
+## Array Types
 
 -  There are probably two ways to give types to array as mentioned below
 
@@ -296,6 +296,54 @@ Property 'push' does not exist on type 'readonly string[]'.
 
 -  Refer following Documentation for more [Click here](https://www.typescriptlang.org/docs/handbook/2/objects.html#the-array-type)
 
-### Union Types : "|"
+## Union Types : "|"
 
 -  Union we basically use, when we are not sure what type of value our code will return probably
+
+```ts
+// We can define multiple type of a variable
+let score: number | string | boolean = 33;
+
+score = "33";
+score = false;
+```
+
+-  Lets say there is two different user schema for user and admin
+
+```ts
+type User = {
+   name: string;
+   id: number;
+};
+
+type Admin = {
+   username: string;
+   id: number;
+};
+
+let gautam: User | Admin = {
+   username: "gautam",
+   id: 1,
+}; //Works fine
+```
+
+-  Union in function
+
+```ts
+function doStuff(id: number | string) {
+   /**
+    * Here I can not do string or number operation with id directly
+    * as id's value is not perfectly defined
+    */
+
+   if (typeof id === "number") {
+      // Here id's type always will be number
+      id + 2;
+   } else {
+      // Here id's type always will be string
+      id.toLocaleUpperCase();
+   }
+
+   //Use this for good coding practice
+}
+```

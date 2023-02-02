@@ -21,8 +21,21 @@ let gautam: User | Admin = {
    id: 1,
 }; //Works fine
 
-let gautam1: User | Admin = {
-   username: "gautam",
-   id: 1,
-   name: "gautam",
-}; //Works fine
+//Union in function
+
+function doStuff(id: number | string) {
+   /**
+    * Here I can not do string or number operation with id directly
+    * as id's value is not perfectly defined
+    */
+
+   if (typeof id === "number") {
+      // Here id's type always will be number
+      id + 2;
+   } else {
+      // Here id's type always will be string
+      id.toLocaleUpperCase();
+   }
+
+   //Use this for good coding practice
+}
