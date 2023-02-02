@@ -1,0 +1,12 @@
+{
+  "name": "create-project-with-ts",
+  "version": "1.0.0",
+  "description": "## Initialize ts",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
