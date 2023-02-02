@@ -2,25 +2,25 @@
 
 ## Installation
 
-- Install TS Globaly
+-  Install TS Globaly
 
 ```
 npm install -g typescript
 ```
 
-- Install TS as a DEV depedency
+-  Install TS as a DEV depedency
 
 ```
 npm install typescript --save-dev
 ```
 
-- To execute run particuller ts file
+-  To execute run particuller ts file
 
 ```
 tsc <File Name>
 ```
 
-- Types in TS
+-  Types in TS
 
 ```
 1. Number
@@ -51,9 +51,9 @@ greetings = 6; //Error
 let number: number = 5;
 ```
 
-- In JS 'number' covers both Floats and Integers but in other languages they both are used differently to define values.
+-  In JS 'number' covers both Floats and Integers but in other languages they both are used differently to define values.
 
-- Numbers in TS
+-  Numbers in TS
 
 ```js
 let age: number = 25;
@@ -72,46 +72,46 @@ age = "Gautam"; //Error as TS already knows that this variable contains number o
 
 ## any
 
-- When TS does not know which value to infer TS infer as a "any"
-- It basically turned of the type checking for that particuller variable
-- We should always avoid to use any as its just not checking type
+-  When TS does not know which value to infer TS infer as a "any"
+-  It basically turned of the type checking for that particuller variable
+-  We should always avoid to use any as its just not checking type
 
 ```js
 let hero;
 
 function getHero() {
-  return true;
+   return true;
 }
 
 hero = getHero();
 ```
 
-- Above "hero" type infered as a any because TS dosent know "getHero" function which value it will return.
-- We should avoid above code example
+-  Above "hero" type infered as a any because TS dosent know "getHero" function which value it will return.
+-  We should avoid above code example
 
 ```js
 let hero: string;
 
 function getHero() {
-  return true;
+   return true;
 }
 
 hero = getHero(); //Error
 ```
 
-- In above code example if type of an variable is defined we will have consistency in our app.
-- Now if any ottrueher developer will return something different value from "getHero" function TS will not allow it.
+-  In above code example if type of an variable is defined we will have consistency in our app.
+-  Now if any ottrueher developer will return something different value from "getHero" function TS will not allow it.
 
 ## Function in Typescript
 
-- In TS while defining a function we need to take care about input , return value types.
+-  In TS while defining a function we need to take care about input , return value types.
 
 ### Input types
 
 ```js
 // 1
 function addTwo(val) {
-  return val + 2;
+   return val + 2;
 }
 
 addTwo("2"); //No errors
@@ -122,13 +122,13 @@ function signUp(name, email, isPaid) {}
 signUp(1, 2, 3); //No errors
 ```
 
-- Above function will not throw an error as "val" type is by default any
+-  Above function will not throw an error as "val" type is by default any
 
 ```js
 //1
 
 function addTwo(val: number) {
-  return val + 2;
+   return val + 2;
 }
 
 addTwo("2"); // Error
@@ -139,9 +139,9 @@ function signUp(name: string, email: string, isPaid: boolean) {}
 signUp(1, 2, 3); //Error
 ```
 
-- Above code example is perfect, where we have defined type of input value
+-  Above code example is perfect, where we have defined type of input value
 
-- To take default value in function value below code example will be usefull
+-  To take default value in function value below code example will be usefull
 
 ```js
 //1
@@ -159,22 +159,22 @@ signUp2("Gautam", "G@gmail.com"); //No Errors
 
 ```js
 function addTwo(val: number) {
-  // return val + 2;
-  return "string";
+   // return val + 2;
+   return "string";
 }
 
 let number = addTwo("2"); // No Errors
 ```
 
-- Above code example will not throw an error as we have not given return value type in the function.
-- Because of that, type of return value is any
+-  Above code example will not throw an error as we have not given return value type in the function.
+-  Because of that, type of return value is any
 
 ### Function with return value type
 
 ```js
 function addTwo(val: number): number {
-  // return val + 2;
-  return "string";
+   // return val + 2;
+   return "string";
 }
 
 let number = addTwo("2"); // Error
@@ -183,45 +183,45 @@ let number = addTwo("2"); // Error
 
 ### Return multiple types values
 
-- Sometimes there might be a case when a function is returning a multiple type of values
+-  Sometimes there might be a case when a function is returning a multiple type of values
 
 ```js
 function returnAns(num: number): string | boolean {
-  if (num > 5) {
-    return true;
-  } else {
-    return "403 Error";
-  }
+   if (num > 5) {
+      return true;
+   } else {
+      return "403 Error";
+   }
 }
 returnAns(5);
 ```
 
-- We can use UNION operator in TS from which we can return a multiple types of values from a function
+-  We can use UNION operator in TS from which we can return a multiple types of values from a function
 
 ### Function which returns nothing
 
-- When a function which will not return any value we should use "void"
+-  When a function which will not return any value we should use "void"
 
 ```js
 const consoleError = (errMsg: string): void => {
-  console.log(errMsg);
+   console.log(errMsg);
 };
 consoleError("202");
 ```
 
-- In above code example if we try to return something after mentioning void TS will throw an error
+-  In above code example if we try to return something after mentioning void TS will throw an error
 
 ```js
 const consoleError = (errMsg: string): void => {
-  console.log(errMsg);
-  return "";
+   console.log(errMsg);
+   return "";
 };
 consoleError("202"); //Error
 ```
 
 ### Function which will never return value
 
-- When this type of case comes into the picture, TS has given documantation regarding the same
+-  When this type of case comes into the picture, TS has given documantation regarding the same
 
 ```js
 const handleError = (errMsg: string): never => {};
@@ -229,25 +229,51 @@ const handleError = (errMsg: string): never => {};
 
 ### And Operator
 
-- In below example, we can use 'and' operator to combine different types.
+-  In below example, we can use 'and' operator to combine different types.
 
 ```js
 type CardNumber = {
-  cardNumber: string,
+   cardNumber: string,
 };
 
 type CardDate = {
-  cardDate: string,
+   cardDate: string,
 };
 
 type Card = CardNumber &
-  CardDate & {
-    cardName: string,
-  };
+   CardDate & {
+      cardName: string,
+   };
 
 let user: Card = {
-  cardName: "Gautam",
-  cardNumber: "56343",
-  cardDate: "17th Aug",
+   cardName: "Gautam",
+   cardNumber: "56343",
+   cardDate: "17th Aug",
 };
+```
+
+### Array Types
+
+-  There are probably two ways to give types to array as mentioned below
+
+```js
+const superHero: string[] = [];
+const heroPower: Array<number> = [];
+
+// Objects of array
+
+type User = {
+  name:string
+  isActive:boolean
+}
+
+const userData:User = []
+
+//2d Array of numbers
+
+const twoDArray : number[][] = [
+  [1,2,3],
+  [4,5,6],
+  //"" Error
+]
 ```
