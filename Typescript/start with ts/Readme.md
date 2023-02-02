@@ -347,3 +347,26 @@ function doStuff(id: number | string) {
    //Use this for good coding practice
 }
 ```
+
+### Union Types with array
+
+```ts
+const data: number[] = [1, 2, 3]; //number of Array
+const data1: string[] = ["1", "2", "3"]; //string of Array
+```
+
+-  Lets make array which will include both types
+
+```ts
+const data3: string[] | number[] = [1, 2, "3"]; //Error bcz of wrong syntax
+```
+
+-  Above syntx states that array can have either strings only or numbers only
+
+-  Right syntax would be as writted below
+
+```ts
+const data3: (number | string)[] = [1, 2, "3"]; //Works fine`
+```
+
+## Touples in Typecrip :
