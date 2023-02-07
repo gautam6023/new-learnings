@@ -15,3 +15,18 @@ export const getTodos = async () => {
    );
    return res.data;
 };
+
+export const toggleStatus = async (id: number, todo: { status: boolean }) => {
+   let res: AxiosResponse<TodoType> = await axios.patch(
+      `http://localhost:5000/todos/${id}`,
+      todo
+   );
+   return res;
+};
+
+export const deleteTodo = async (id: number) => {
+   let res: AxiosResponse<TodoType> = await axios.delete(
+      `http://localhost:5000/todos/${id}`
+   );
+   return res;
+};

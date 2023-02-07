@@ -26,7 +26,7 @@ function App() {
          <h1>Todo App</h1>
          <TodoInput text={text} setText={setText} fetchTodos={fetchTodos} />
          {todos.map((el, i) => {
-            return <SingleTodo {...el} />;
+            return <SingleTodo key={el.id} {...el} fetchTodos={fetchTodos} />;
          })}
       </div>
    );
