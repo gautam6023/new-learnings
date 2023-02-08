@@ -1,0 +1,62 @@
+.navbar {
+   padding: "0px 50px";
+   border-bottom: 0.5px solid rgba(103, 103, 103, 0.203);
+}
+.active {
+   font-weight: 500;
+   color: #000000;
+}
+.not_active {
+   /* color: #4aa1be; */
+   /* background-color: red; */
+}
+.active::before {
+   content: "";
+   position: absolute;
+   background-color: #8a94f8;
+   height: 2.5px;
+   width: 100%;
+   bottom: -3%;
+   z-index: 1;
+   left: 0;
+}
+
+.not_active:hover::before {
+   /* border: 1px solid black; */
+   content: "";
+   position: absolute;
+   background-color: #d1d5db;
+   height: 2.5px;
+   width: 100%;
+   bottom: -3%;
+   /* color: #505354; */
+   z-index: 0;
+   left: 0;
+}
+
+.navlink {
+   /* border: 1px solid black; */
+   height: 100%;
+   display: flex;
+   align-items: center;
+   position: relative;
+   padding: 0 0.3rem;
+   font-size: 16px;
+}
+
+/* .navlink */
+/* .navlink::before {
+   content: "";
+   position: absolute;
+   background-color: #8a94f8;
+   height: 2.5px;
+   width: 100%;
+   bottom: 0;
+   left: 0;
+} */
+
+/* .logDiv {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+} */

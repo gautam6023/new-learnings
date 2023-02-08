@@ -1,0 +1,7 @@
+.removeHover:hover {
+   text-decoration: none;
+}
+a:-webkit-any-link {
+   text-decoration: none;
+   color: inherit;
+}
