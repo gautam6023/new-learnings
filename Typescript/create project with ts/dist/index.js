@@ -38,7 +38,7 @@ gautam.setUserToken("C101");
 console.log(gautam.getCartItems);
 console.log(gautam.getCartNumber);
 console.log(gautam);
-class SubClass extends User {
+class SubUser extends User {
     // get getCourseCounts(): number {
     //    return this._courseCount; //Throws an error as in parent class this property is private
     // }
@@ -46,3 +46,5 @@ class SubClass extends User {
         return this._courseNames; //  Works fine as its protected propery and bacause of that we can access it in sub-classes as well
     }
 }
+const subUser = new SubUser("sub-user", "sub-user@gmail.com", "s101", "male");
+console.log(subUser);
