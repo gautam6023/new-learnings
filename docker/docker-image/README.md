@@ -1,3 +1,5 @@
+# Build a docker image and push it to docker hub
+
 - Lets say we have a simple node.js server with express, now let’s create a docker image for that.
 - First delete node_modules or add it in docker ignore file
 - create a Dockerfile => see docker file
