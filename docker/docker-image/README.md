@@ -3,6 +3,14 @@
 - Lets say we have a simple node.js server with express, now let’s create a docker image for that.
 - First delete node_modules or add it in docker ignore file
 - create a Dockerfile => see docker file
+```docker
+FROM node:slim => node will be base image, and after that add tag
+WORKDIR /app => set working dir
+COPY . /app => copy files from current dir to /app
+RUN npm install
+EXPOSE 3000 => the port which is used in the app we need to expose it
+CMD node index.js => run the command to start the app
+```
 - Now build this image
 ```docker
 docker build -t <username>/<imagename>:<version> .
